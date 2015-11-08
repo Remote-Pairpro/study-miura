@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Step 02 Click Counter</title>
+    <title>Step 01</title>
 
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -16,25 +16,27 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type='text/javascript' src="../js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='../js/knockout-3.3.0.js'></script>
+    <script type='text/javascript' src='../js/common.js'></script>
+
   </head>
   <body>
-    <h1>Step 02 Click Counter</h1>
+    <h1>Step 02 Click Counter !</h1>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script type='text/javascript' src='../js/knockout-3.3.0.js'></script>
-    <script type='text/javascript' src='../js/self.js'></script>
-    
     <div>クリック回数 <span data-bind='text: numberOfClicks'>&nbsp;</span> 回</div>
-  
+      
     <button data-bind='click: registerClick, disable: hasClickedTooManyTimes'>クリックしてね</button>
-  
+      
     <div data-bind='visible: hasClickedTooManyTimes'>
         クリックしすぎです！指がすり減らないうちにやめて下さい ヽ(^o^;)丿
         <button data-bind='click: resetClicks'>リセット</button>
-    </div> 
+    </div>
+
+    <div>クリック回数(水増し) <span data-bind='text: getMizumashi'>&nbsp;</span> 回</div>
+    
+    <script type='text/javascript' src='../js/2_clickcounter.js'></script>
 
   </body>
 </html>
