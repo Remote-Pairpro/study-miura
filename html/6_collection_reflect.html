@@ -29,8 +29,9 @@
     <ul data-bind="foreach: people">
         <li>
             <div>
-                <span data-bind="text: name"> </span> さんの <span data-bind='text: children().length'>&nbsp;</span> 人のお子様:
-                <a href='#' data-bind='click: addChild '>また産まれた！</a>
+                <span data-bind="text: $data.name"> </span> さんの 
+                <span data-bind='text: $data.children().length'>&nbsp;</span> 人のお子様:
+                <a href='#' data-bind='click: $data.addChild '>また産まれた！</a>
                 <span class='renderTime' data-bind='visible: $root.showRenderTimes'>
                     (<span data-bind='text: new Date().getSeconds()' > </span>秒 にレンダリング)
                 </span>
@@ -38,14 +39,17 @@
             <ul data-bind="foreach: children">
                 <li>
                     <span data-bind="text: $data"> </span>
-                    <span class='renderTime' data-bind='visible: $root.showRenderTimes'>
+                    <span class='renderTime' 
+                        data-bind='visible: $root.showRenderTimes'>
                         (<span data-bind='text: new Date().getSeconds()' > </span>秒 にレンダリング)
                     </span>
                 </li>
             </ul>
         </li>
     </ul>
-    <label><input data-bind='checked: showRenderTimes' type='checkbox' /> レンダリング時刻を表示</label>       
+    <label>
+      <input data-bind='checked: showRenderTimes' type='checkbox' /> レンダリング時刻を表示
+    </label>       
 
     <script type='text/javascript' src='../js/6_collection_reflect.js'></script>
 
