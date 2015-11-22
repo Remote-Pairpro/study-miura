@@ -25,10 +25,28 @@
   <body>
     <h1>Step 06 Collection sample</h1>
 
-    <div>First name: <span data-bind="text: firstName"></span></div>
-    <div>Last name: <span data-bind="text: lastName"></span></div>
-    <div class="heading">Hello, <input data-bind="textInput: fullName"/></div>
-       
+    <h2>子だくさん名簿</h2>
+    <ul data-bind="foreach: people">
+        <li>
+            <div>
+                <span data-bind="text: name"> </span> さんの <span data-bind='text: children().length'>&nbsp;</span> 人のお子様:
+                <a href='#' data-bind='click: addChild '>また産まれた！</a>
+                <span class='renderTime' data-bind='visible: $root.showRenderTimes'>
+                    (<span data-bind='text: new Date().getSeconds()' > </span>秒 にレンダリング)
+                </span>
+            </div>
+            <ul data-bind="foreach: children">
+                <li>
+                    <span data-bind="text: $data"> </span>
+                    <span class='renderTime' data-bind='visible: $root.showRenderTimes'>
+                        (<span data-bind='text: new Date().getSeconds()' > </span>秒 にレンダリング)
+                    </span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <label><input data-bind='checked: showRenderTimes' type='checkbox' /> レンダリング時刻を表示</label>       
+
     <script type='text/javascript' src='../js/6_collection_reflect.js'></script>
 
   </body>

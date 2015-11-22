@@ -1,21 +1,21 @@
-function MyViewModel() {
-    
-    this.firstName = ko.observable('Planet');
-    this.lastName = ko.observable('Earth');
-
-    this.fullName = ko.pureComputed({
-        read: function () {
-            return this.firstName() + " " + this.lastName();
-        },
-        write: function (value) {
-            var lastSpacePos = value.lastIndexOf(" ");
-            if (lastSpacePos > 0) { // Ignore values with no space character
-                this.firstName(value.substring(0, lastSpacePos)); // Update "firstName"
-                this.lastName(value.substring(lastSpacePos + 1)); // Update "lastName"
-            }
-        },
-        owner: this
-    });
+// 自分の名前と子を保持し、新たな子を追加するメソッドをもつ Person クラス
+var Person = function(name, children) {
+    this.name = name;
+    this.children = ko.observableArray(children);
+ 
+    this.addChild = function() {
+        this.children.push("新しいお子様");
+    }.bind(this);
 }
-
-ko.applyBindings(new MyViewModel());
+ 
+// 汎化した UI の状態を保持するが、UI の実装に依存しない ViewModel
+var viewModel = {
+    people: [
+        new Person("Annabelle", ["Arnie", "Anders", "Apple"]),
+        new Person("Bertie", ["Boutros-Boutros", "Brianna", "Barbie", "Bee-bop"]),
+        new Person("Charles", ["Cayenne", "Cleopatra"])
+    ],
+    showRenderTimes: ko.observable(false)
+};
+ 
+ko.applyBindings(viewModel);
