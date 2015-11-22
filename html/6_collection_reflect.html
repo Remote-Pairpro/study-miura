@@ -29,6 +29,7 @@
     <ul data-bind="foreach: people">
         <li>
             <div>
+                <span data-bind="text: $index() + 1"></span>.
                 <span data-bind="text: $data.name"> </span> さんの 
                 <span data-bind='text: $data.children().length'>&nbsp;</span> 人のお子様:
                 <a href='#' data-bind='click: $data.addChild '>また産まれた！</a>
@@ -38,6 +39,7 @@
             </div>
             <ul data-bind="foreach: children">
                 <li>
+                    <span data-bind="text: $index() + 1"></span>.
                     <span data-bind="text: $data"> </span>
                     <span class='renderTime' 
                         data-bind='visible: $root.showRenderTimes'>
