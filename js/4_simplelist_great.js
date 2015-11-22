@@ -1,7 +1,7 @@
 var BetterListModel = function() {
     
-    this.itemToAdd = ko.observable("");
-    this.allItems = ko.observableArray(["リコッタチーズ", "エシャロット", "ロマネスコ", "オリーブオイル", "イタリアンパセリ", "パルミジャーノチーズ", ""]);
+    this.itemToAdd =     ko.observable("");
+    this.allItems =      ko.observableArray(["リコッタチーズ", "エシャロット", "ロマネスコ", "オリーブオイル", "イタリアンパセリ", "パルミジャーノチーズ"]);
     this.selectedItems = ko.observableArray(["オリーブオイル"]);
  
     this.addItem = function() {
@@ -12,7 +12,8 @@ var BetterListModel = function() {
  
     this.removeSelected = function() {
         this.allItems.removeAll(this.selectedItems());
-        this.selectedItems([]); // 選択状態をクリア
+        // this.selectedItems([]); // 選択状態をクリア
+        // alert(this.selectedItems().length);
     };
  
     this.sortItems = function() {
