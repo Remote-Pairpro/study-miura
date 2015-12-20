@@ -8,8 +8,19 @@ var initialData = [
     { name: "楽観的なカタツムリ", sales: 420, price: 1.50 }
 ];
   
-var PagedGridModel = function(items) {
-    this.items = ko.observableArray(items);
+var PagedGridModel = function(initItems) {
+    
+    this.items = ko.observableArray(initItems);
+
+    this.gridViewModel = new ko.simpleGrid.viewModel({
+        data: this.items,
+        columns: [
+            { headerText: "タイトル", rowText: "name" },
+            { headerText: "販売実績(冊)", rowText: "sales" },
+            { headerText: "価格", rowText: function (item) { return "$" + item.price.toFixed(2) } }
+        ],
+        pageSize: 4
+    });
   
     this.addItem = function() {
         this.items.push({ name: "新書", sales: 0, price: 100 });
@@ -25,15 +36,6 @@ var PagedGridModel = function(items) {
         this.gridViewModel.currentPageIndex(0);
     };
   
-    this.gridViewModel = new ko.simpleGrid.viewModel({
-        data: this.items,
-        columns: [
-            { headerText: "タイトル", rowText: "name" },
-            { headerText: "販売実績(冊)", rowText: "sales" },
-            { headerText: "価格", rowText: function (item) { return "$" + item.price.toFixed(2) } }
-        ],
-        pageSize: 4
-    });
 };
 
 ko.applyBindings(new PagedGridModel(initialData));

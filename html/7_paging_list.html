@@ -19,6 +19,7 @@
 
     <script type='text/javascript' src="../js/bootstrap.min.js"></script>
     <script type='text/javascript' src='../js/knockout-3.3.0.js'></script>
+    <script type='text/javascript' src='../js//knockout.simpleGrid.3.0.js'></script>
     <script type='text/javascript' src='../js/common.js'></script>
 
   </head>
@@ -35,7 +36,8 @@
         名前でソート
     </button>
     
-    <button data-bind='click: jumpToFirstPage, enable: gridViewModel.currentPageIndex'>
+    <button data-bind='click: jumpToFirstPage, 
+        enable: gridViewModel.currentPageIndex'>
         最初のページへ移動
     </button>
 
