@@ -35,7 +35,7 @@
     
     <p data-bind='fadeVisible: displayAdvancedOptions'>
         表示:
-        <label><input type= 'radio' name="type" value='all' data-bind='checked: typeToShow' />すべて</label>
+        <label><input type='radio' name="type" value='all' data-bind='checked: typeToShow' />すべて</label>
         <label><input type='radio' name="type" value='rock' data-bind='checked: typeToShow' />岩石惑星</label>
         <label><input type='radio' name="type" value='gasgiant' data-bind='checked: typeToShow' />巨大ガス惑星</label>
     </p>
@@ -48,7 +48,6 @@
     
     <p data-bind='fadeVisible: displayAdvancedOptions'>
         <button data-bind='click: addPlanet.bind($data, "rock")'>岩石惑星を追加</button>
-        
         <button data-bind='click: addPlanet.bind($data, "gasgiant")'>巨大ガス惑星を追加</button>
     </p>    
 
