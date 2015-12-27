@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Step <08></08></title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src="../js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='../js/knockout-3.3.0.js'></script>
+    <script type='text/javascript' src='../js/common.js'></script>
+
+  </head>
+  <body>
+    <h1>Step 08</h1>
+    
+    <p>
+        <label>
+            <input type='checkbox' data-bind='checked: displayAdvancedOptions' />
+            オプションを表示
+        </label>
+    </p>
+    
+    <p data-bind='fadeVisible: displayAdvancedOptions'>
+        表示:
+        <label><input type= 'radio' name="type" value='all' data-bind='checked: typeToShow' />すべて</label>
+        <label><input type='radio' name="type" value='rock' data-bind='checked: typeToShow' />岩石惑星</label>
+        <label><input type='radio' name="type" value='gasgiant' data-bind='checked: typeToShow' />巨大ガス惑星</label>
+    </p>
+    
+    <div data-bind='template: { foreach: planetsToShow,
+                                beforeRemove: hidePlanetElement,
+                                afterAdd: showPlanetElement }'>
+        <div data-bind='attr: { "class": "planet " + type }, text: name'> </div>
+    </div>
+    
+    <p data-bind='fadeVisible: displayAdvancedOptions'>
+        <button data-bind='click: addPlanet.bind($data, "rock")'>岩石惑星を追加</button>
+        
+        <button data-bind='click: addPlanet.bind($data, "gasgiant")'>巨大ガス惑星を追加</button>
+    </p>    
+
+    <script type='text/javascript' src='../js/8_animation.js'></script>
+
+  </body>
+</html>
