@@ -2,11 +2,11 @@
 /// <reference path="./tsd/typings/knockout/knockout.d.ts" />
 
 class ClickCounterViewModel {
+    
     // プロパティっぽいやつ
     public numberOfClicks: KnockoutObservable<number>;
-    public hasClickedTooManyTimes: KnockoutComputed<number>;
+    public hasClickedTooManyTimes: KnockoutComputed<boolean>;
     public getMizumashi: KnockoutComputed<number>;
-    
     
     // コンストラクタ
     constructor() {
@@ -22,7 +22,7 @@ class ClickCounterViewModel {
         this.getMizumashi = ko.computed({
             owner: this,
             read: function() {
-                return this.numberOfClicks() * 10;
+                return this.numberOfClicks() * 100;
             }
         });
     }
@@ -35,16 +35,6 @@ class ClickCounterViewModel {
          this.numberOfClicks(0);
     }
 }
-
-
-// var ClickCounterViewModel = function() {
-//     this.hasClickedTooManyTimes = ko.computed(function() {
-//         return this.numberOfClicks() >= 5;
-//     }, this);
-//     this.getMizumashi = ko.computed(function() {
-//         return this.numberOfClicks() * 10;
-//     }, this);
-// };
  
 // KnockoutJS側に登録。
 ko.applyBindings(new ClickCounterViewModel());
