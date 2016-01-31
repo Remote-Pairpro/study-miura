@@ -1,4 +1,4 @@
-/// <reference path="tsd/typings/knockout/knockout.d.ts" />
+/// <reference path="../../tsd/typings/knockout/knockout.d.ts" />
 class ShampooViewModel {
     
     public volume: KnockoutObservable<number> = ko.observable(500);

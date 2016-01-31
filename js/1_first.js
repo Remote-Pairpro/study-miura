@@ -12,4 +12,4 @@ var ViewModel = function(first, last) {
 };
  
 // 次のコードで Knockout を起動します。
-ko.applyBindings(new ViewModel("Planet", "Earth"));
+ko.applyBindings(new ViewModel("Planet", "Earth")); 
