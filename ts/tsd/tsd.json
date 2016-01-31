@@ -6,7 +6,10 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "knockout/knockout.d.ts": {
-      "commit": "6eebd5e90a1cbd6b47b0705ba72dbcd5baf846f3"
+      "commit": "5d0f2126c8dac8fce0ff020218aea06607213b0d"
+    },
+    "jquery/jquery.d.ts": {
+      "commit": "5d0f2126c8dac8fce0ff020218aea06607213b0d"
     }
   }
 }
