@@ -1,4 +1,4 @@
-/// <reference path="tsd/typings/knockout/knockout.d.ts" />
+/// <reference path="../../tsd/typings/knockout/knockout.d.ts" />
 var ShampooViewModel = (function () {
     function ShampooViewModel() {
         this.volume = ko.observable(500);
