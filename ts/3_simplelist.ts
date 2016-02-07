@@ -14,10 +14,8 @@ class SimpleListModel {
     // アイテムを追加します。
     public addItem() {
         if (this.itemToAdd() != "") {
-            // 追加先の items は observableArray なので、対応する UI が更新されます。
+            // 入力内容をObservableArrayに足し、テキストはクリア。
             this.items.push(this.itemToAdd());
-            // itemToAdd は Observable であり、テキストボックスにバインドされているため、
-            // 次のようにすることでテキストボックスをクリアできます。
             this.itemToAdd("");
         }
     }
