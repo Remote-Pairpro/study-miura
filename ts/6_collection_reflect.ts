@@ -1,6 +1,9 @@
 /// <reference path="./tsd/typings/tsd.d.ts" />
 /// <reference path="./tsd/typings/knockout/knockout.d.ts" />
 
+class Person {
+}
+
 // // 自分の名前と子を保持し、新たな子を追加するメソッドをもつ Person クラス
 // var Person = function(name, children) {
 //     this.name = name;
