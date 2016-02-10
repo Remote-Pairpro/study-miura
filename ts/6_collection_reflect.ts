@@ -1,7 +1,23 @@
 /// <reference path="./tsd/typings/tsd.d.ts" />
 /// <reference path="./tsd/typings/knockout/knockout.d.ts" />
 
-class Person {
+class SomePerson {
+
+    // プロパティっぽいもの
+    public name: string;
+    public children: KnockoutObservableArray<string>;
+
+	// コンストラクタ	
+	constructor(name: string , children: string[]) {
+        this.name = name;
+        this.children = ko.observableArray(children);
+    }
+
+	// 子アイテムを足す。
+	public addChild() {
+        this.children.push("新しいお子様");
+	} 
+
 }
 
 // // 自分の名前と子を保持し、新たな子を追加するメソッドをもつ Person クラス
