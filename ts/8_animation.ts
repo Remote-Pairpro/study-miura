@@ -43,8 +43,9 @@ class  PlanetsModel {
     }
 
     public addPlanet(type: string) {
+        var planetName : string = prompt("惑星名を入力して下さい。","");
         this.planets.push({
-            name: "新惑星",
+            name: planetName,
             type: type
         });
     }
