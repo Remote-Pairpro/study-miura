@@ -1,3 +1,6 @@
+/// <reference path="./tsd/typings/tsd.d.ts" />
+/// <reference path="./tsd/typings/knockout/knockout.d.ts" />
+
 var initialData: {name?: string ,sales?: number ,price?: number}[] =  [
     { name: "子猫の旅路", sales: 352, price: 75.95 },
     { name: "すばやいコヨーテ", sales: 89, price: 190.00 },
@@ -12,6 +15,7 @@ class PagedGridModel {
     
     // プロパティっぽいもの
     public items: KnockoutObservableArray<{name?: string ,sales?: number ,price?: number}>;
+    public gridViewModel: any;
     
     // コンストラクタ
     constructor(initItems : {name?: string ,sales?: number ,price?: number}[]) {
