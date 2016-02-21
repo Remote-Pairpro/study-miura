@@ -20,6 +20,9 @@ class  PlanetsModel {
     public typeToShow : KnockoutObservable<string>;
     public displayAdvancedOptions : KnockoutObservable<boolean>;
     public planetsToShow: KnockoutComputed<any>;
+    
+    public showPlanetElement:any;
+    public hidePlanetElement:any;
  
     // コンストラクタ
     public constructor() {
@@ -35,10 +38,14 @@ class  PlanetsModel {
                 var desiredType = this.typeToShow();
                 if (desiredType == "all") return this.planets();
                 return ko.utils.arrayFilter(this.planets(), function(planet) {
-                    return this.planet['type'] == desiredType;
+                    return planet.type == desiredType;
                 });
             }
         });
+
+        // 惑星リスト用のアニメーション callback
+        this.showPlanetElement = (elem: any) => { if (elem.nodeType === 1) $(elem).hide().slideDown() }
+        this.hidePlanetElement = (elem: any) => { if (elem.nodeType === 1) $(elem).slideUp(() =>{ $(elem).remove(); }) }
 
     }
 
@@ -48,13 +55,7 @@ class  PlanetsModel {
             type: type
         });
     }
-
-
- 
-    // 惑星リスト用のアニメーション callback
-    public showPlanetElement(elem: any) { if (elem.nodeType === 1) $(elem).hide().slideDown() }
-    public hidePlanetElement(elem: any) { if (elem.nodeType === 1) $(elem).slideUp(() =>{ $(elem).remove(); }) }
-};
+}
  
 // jQuery の fadeIn() / fadeout() メソッドを使ってエレメントの 可視/不可視 を切り替えるカスタムばインディング
 // 別のJSファイルに分割して読み込むこともできます。
