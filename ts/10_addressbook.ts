@@ -18,8 +18,6 @@ class ContactsModel {
     public contacts: KnockoutObservableArray<{firstName?:string; lastName?:string; phones?:KnockoutObservableArray<{type?:string;pno?:string}>;}>;
     public lastSavedJson: KnockoutObservable<string>;
     
-    mySelf:ContactsModel = this;
-
     // コンストラクタ
     public constructor(initContacts:{firstName?:string; lastName?:string; phones?:{type?:string;pno?:string}[];}[]) {
         this.contacts = ko.observableArray(ko.utils.arrayMap(
