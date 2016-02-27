@@ -52,11 +52,11 @@ class ContactsModel {
         });
     }
 
-    public removeContact(contact:{firstName?:string; lastName?:string; phones?:KnockoutObservableArray<{type?:string;pno?:string}>;}){
+    public removeContact = (contact:{firstName?:string; lastName?:string; phones?:KnockoutObservableArray<{type?:string;pno?:string}>;}) => {
         this.contacts.remove(contact);
     } 
  
-    public removePhone(phone:KnockoutObservableArray<{type?:string;pno?:string}>){
+    public removePhone = (phone:KnockoutObservableArray<{type?:string;pno?:string}>) => {
         this.contacts().forEach( (content) => { content.phones.remove(phone) } )
     }
  
