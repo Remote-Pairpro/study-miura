@@ -17,7 +17,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type='text/javascript' src="../js/bootstrap.min.js"></script>
     <script type='text/javascript' src='../js/knockout-3.3.0.js'></script>
     <script type='text/javascript' src='../js/common.js'></script>
@@ -48,7 +47,7 @@
                             <tbody data-bind="foreach: phones">
                                 <tr>
                                     <td><input data-bind='value: type' /></td>
-                                    <td><input data-bind='value: number' /></td>
+                                    <td><input data-bind='value: pno' /></td>
                                     <td><a href='#' data-bind='click: $root.removePhone'>削除</a></td>
                                 </tr>
                             </tbody>
