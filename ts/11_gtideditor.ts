@@ -5,15 +5,16 @@
 class GiftModel {
 
     // プロパティっぽいやつ
-    public gifts:any;
+    public gifts:KnockoutObservableArray<{name?:string; price?:string;}>;
 
     // コンストラクタ
-    public constructor(initGifts:any) {
+    public constructor(initGifts:{name?:string; price?:string;}[]) {
         this.gifts = ko.observableArray(initGifts);
     }
  
     // メソッド群
  
+    // 一行追加
     public addGift() {
         this.gifts.push({
             name: "",
@@ -21,10 +22,12 @@ class GiftModel {
         });
     }
  
-    public removeGift = (gift:any) => {
+    // 一行削除
+    public removeGift = (gift:{name?:string; price?:string;}) => {
         this.gifts.remove(gift);
     }
  
+    // 登録(今はアラート出るだけ)
     public save = (form:any) => {
         alert("次のようにサーバに送信できます: " + ko.utils.stringifyJson(this.gifts));
         // ここで通常のフォーム送信同様に送信する場合、次のように書いてください:
