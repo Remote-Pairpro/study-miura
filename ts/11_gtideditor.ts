@@ -2,32 +2,42 @@
 /// <reference path="./tsd/typings/knockout/knockout.d.ts" />
 /// <reference path="./tsd/typings/jquery.validation/jquery.validation.d.ts" />
 
-var GiftModel = function(gifts) {
-    var self = this;
-    self.gifts = ko.observableArray(gifts);
+class GiftModel {
+
+    // プロパティっぽいやつ
+    public gifts:any;
+
+    // コンストラクタ
+    public constructor(initGifts:any) {
+        this.gifts = ko.observableArray(initGifts);
+    }
  
-    self.addGift = function() {
-        self.gifts.push({
+    // メソッド群
+ 
+    public addGift() {
+        this.gifts.push({
             name: "",
             price: ""
         });
-    };
+    }
  
-    self.removeGift = function(gift) {
-        self.gifts.remove(gift);
-    };
+    public removeGift = (gift:any) => {
+        this.gifts.remove(gift);
+    }
  
-    self.save = function(form) {
-        alert("次のようにサーバに送信できます: " + ko.utils.stringifyJson(self.gifts));
+    public save = (form:any) => {
+        alert("次のようにサーバに送信できます: " + ko.utils.stringifyJson(this.gifts));
         // ここで通常のフォーム送信同様に送信する場合、次のように書いてください:
         // ko.utils.postJson($("form")[0], self.gifts);
-    };
-};
+    }
+}
  
 var targetModel = new GiftModel([
     { name: "高帽子", price: "39.95"},
     { name: "長いクローク", price: "120.00"}
-]);
+])
+
+// KOにモデルを登録。
 ko.applyBindings(targetModel, document.getElementById('demo_1'));
  
 // jQuery Validation を起動
