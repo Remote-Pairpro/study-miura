@@ -1,3 +1,4 @@
+
 /// <reference path="./tsd/typings/tsd.d.ts" />
 /// <reference path="./tsd/typings/knockout/knockout.d.ts" />
 
@@ -42,7 +43,7 @@ class TwitterListModel {
         
         // computed定義系。
         
-        this.userNameToAddIsValid = ko.computed(() => {
+        this.userNameToAddIsValid = ko.computed(():boolean => {
             return (this.userNameToAdd() == "") || (this.userNameToAdd().match(/^\s*[a-zA-Z0-9_]{1,15}\s*$/) != null);
         }, this);
 
@@ -59,7 +60,7 @@ class TwitterListModel {
             }
         }, this);
         
-        this.hasUnsavedChanges = ko.computed(() => {
+        this.hasUnsavedChanges = ko.computed(():boolean => {
             if (!this.editingList.name()) {
                 return this.editingList.userNames().length > 0;
             }
