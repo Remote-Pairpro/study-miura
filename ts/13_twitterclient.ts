@@ -100,7 +100,7 @@ class TwitterListModel {
         }
     }
  
-    public removeUser(userName:string) {
+    public removeUser = (userName:string) => {
         this.editingList.userNames.remove(userName)
     }
  
