@@ -58,7 +58,7 @@ class Cart {
         this.lines.push(new CartLine()) 
     }
     
-    public removeLine(line:CartLine) { 
+    public removeLine = (line:CartLine) => { 
         this.lines.remove(line) 
     }
     
