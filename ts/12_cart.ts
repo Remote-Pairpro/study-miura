@@ -11,7 +11,7 @@ class CartLine {
 
     // プロパティっぽいやつ
     public category:KnockoutObservable<string>;
-    public product:KnockoutObservable<any>;
+    public product:KnockoutObservable<{name?:string; price:number;}>;
     public quantity:KnockoutObservable<number>;
     public subtotal:KnockoutComputed<number>;
 
