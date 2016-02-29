@@ -32,7 +32,7 @@ class  PlanetsModel {
             owner: this,
             read: () => {
                 // 惑星のリストを 条件 "typeToShow" でフィルタリングします。
-                var desiredType = this.typeToShow();
+                let desiredType:string = this.typeToShow();
                 if (desiredType == "all") return this.planets();
                 return ko.utils.arrayFilter(this.planets(), function(planet) {
                     return planet.type == desiredType;
@@ -43,7 +43,7 @@ class  PlanetsModel {
     }
 
     public addPlanet(type: string) {
-        var planetName : string = prompt("惑星名を入力して下さい。","");
+        let planetName : string = prompt("惑星名を入力して下さい。","");
         this.planets.push({
             name: planetName,
             type: type
@@ -61,13 +61,13 @@ class  PlanetsModel {
 ko.bindingHandlers.fadeVisible = {
     init: (element:any, valueAccessor:any) => {
         // 最初に、値に応じて即座にエレメントの 可視/不可視 を設定します。
-        var value = valueAccessor();
+        let value = valueAccessor();
         // Observable かどうかがわからない値は、"unwrapObservable" を使って処理することができます。
         $(element).toggle(ko.utils.unwrapObservable(value));
     },
     update: (element:any, valueAccessor:any) => {
         // 値の変化に応じて、ゆっくりと 可視/不可視 の切り替えを行います。
-        var value = valueAccessor();
+        let value = valueAccessor();
         ko.utils.unwrapObservable(value) ? $(element).fadeIn() : $(element).fadeOut();
     }
 };
