@@ -55,7 +55,7 @@ class ContactsModel {
     } 
  
     public removePhone = (phone:KnockoutObservableArray<{type?:string;pno?:string}>) => {
-        this.contacts().forEach( (content) => { content.phones.remove(phone) } )
+        this.contacts().forEach( (content:{firstName?:string; lastName?:string; phones?:KnockoutObservableArray<{type?:string;pno?:string}>;}) => { content.phones.remove(phone) } )
     }
  
     public save() {
