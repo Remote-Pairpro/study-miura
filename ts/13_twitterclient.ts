@@ -137,8 +137,8 @@ class TwitterListModel {
 ko.applyBindings(new TwitterListModel(savedLists, "Tech pundits"));
  
 // 「読込中」の表示は jQuery でおこなう。- Knockout では何もしない。
-$(".loadingIndicator").ajaxStart(function() {
+$(".loadingIndicator").ajaxStart(() => {
     $(this).fadeIn();
-}).ajaxComplete(function() {
+}).ajaxComplete(() => {
     $(this).fadeOut();
 });

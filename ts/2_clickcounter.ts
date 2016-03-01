@@ -15,13 +15,13 @@ class ClickCounterViewModel {
         // イベント追加。
         this.hasClickedTooManyTimes = ko.computed({
             owner: this,
-            read: function() {
+            read: () => {
                 return this.numberOfClicks() >= 5;
             }
         });
         this.getMizumashi = ko.computed({
             owner: this,
-            read: function() {
+            read: () => {
                 return this.numberOfClicks() * 100;
             }
         });

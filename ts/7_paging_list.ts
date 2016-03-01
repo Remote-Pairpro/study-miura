@@ -25,7 +25,7 @@ class PagedGridModel {
             columns: [
                 { headerText: "タイトル", rowText: "name" },
                 { headerText: "販売実績(冊)", rowText: "sales" },
-                { headerText: "価格", rowText: function (item) { return "$" + item.price.toFixed(2) } }
+                { headerText: "価格", rowText: (item) => { return "$" + item.price.toFixed(2) } }
             ],
             pageSize: 4
         });
@@ -36,7 +36,7 @@ class PagedGridModel {
     }
   
     public sortByName() {
-        this.items.sort(function(a, b) {
+        this.items.sort((a, b) => {
             return a.name < b.name ? -1 : 1;
         });
     }

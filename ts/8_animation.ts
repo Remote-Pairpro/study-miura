@@ -19,7 +19,7 @@ class  PlanetsModel {
     public planets : KnockoutObservableArray<{name?: string; type?: string;}>;
     public typeToShow : KnockoutObservable<string>;
     public displayAdvancedOptions : KnockoutObservable<boolean>;
-    public planetsToShow: KnockoutComputed<any>;
+    public planetsToShow: KnockoutComputed<{name?: string; type?: string;}[]>;
     
     // コンストラクタ
     public constructor() {
@@ -34,7 +34,7 @@ class  PlanetsModel {
                 // 惑星のリストを 条件 "typeToShow" でフィルタリングします。
                 let desiredType:string = this.typeToShow();
                 if (desiredType == "all") return this.planets();
-                return ko.utils.arrayFilter(this.planets(), function(planet) {
+                return ko.utils.arrayFilter(this.planets(), (planet) => {
                     return planet.type == desiredType;
                 });
             }
